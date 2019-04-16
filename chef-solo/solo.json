@@ -1,0 +1,10 @@
+{
+   "hello":{
+    "tmp_dir" : "/tmp/helloDir",
+    "message" : "This is the main message!"
+    },
+   "run_list": [
+    "recipe[hello::dummy_file]",
+    "recipe[hello::test_file]"
+  ]
+}
