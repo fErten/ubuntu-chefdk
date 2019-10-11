@@ -7,12 +7,12 @@ org_pem = ENV['CHEF_ORGANIZATION_PEM']
 
 
 # create pem keys for client and organization
-current_dir = File.dirname(__FILE__)
-clientFile = File.open "#{user}.pem", "w"
+current_dir =  File.absolute_path(File.dirname(__FILE__))
+clientFile = File.open "#{current_dir}/#{user}.pem", "w"
 clientFile.write(client_pem)
 clientFile.close
 
-orgFile = File.open "#{organization}-validator.pem", "w"
+orgFile = File.open "#{current_dir}/#{organization}-validator.pem", "w"
 orgFile.write(org_pem)
 orgFile.close
 

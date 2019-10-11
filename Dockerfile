@@ -14,7 +14,9 @@ RUN dpkg -i chefdk_3.8.14-1_amd64.deb
 RUN echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
 ENV PATH="/opt/chefdk/embedded/bin:${PATH}"
 
+COPY ./.chef     /home/user/.chef
 COPY ./chef-repo /home/user/chef-repo
+
 
 # source bashrc to use chef executables
 RUN /bin/bash -c "source ~/.bashrc"
